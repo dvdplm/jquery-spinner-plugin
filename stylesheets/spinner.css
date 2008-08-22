@@ -1,0 +1,7 @@
+/* the class name is configurable using $.Spinner.className = 'otherspinnerclass' */
+.spinner {
+  background: #fff url('../images/spinner.gif') no-repeat center center;
+  opacity: 0.75;
+  filter: alpha(opacity: 75);
+  -moz-opacity: 0.75;
+  -khtml-opacity: 0.75; }

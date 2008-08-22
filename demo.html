@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <title>Spinner demo
+    </title>
+    <link href="stylesheets/spinner.css" media="screen" rel="stylesheet" type="text/css" />
+
+    <script src="javascripts/jquery.js" type="text/javascript"></script>
+    <script src="javascripts/jquery.spinner.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        alert("Ready for spins. Starting with all <p>'s having class of 'a_p'");
+        $(".a_p").spin();
+        alert("Now all <td>s");
+        $(".a_p").unspin();
+        $("td").spin();
+        alert("Now all elements having the 'spin_here' class");
+        $("td").unspin();
+        $(".spin_here").spin();
+        alert("All INPUT");
+        $(".spin_here").unspin();
+        $("input").spin();
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="a_p">
+      beef beef beef beef beef beef beef 
+    </div>
+    <p class="not_a_p">
+      not beef not beef not beef not beef not beef not beef
+    </p>
+    
+    <div id="mydiv">
+      <table border="1" id="mytable">
+        <tr>
+          <td id="acell1">Cell contents</td>
+          <td id="acell2" class="spin_here">Cell contents</td>
+          <td id="acell3">Cell contents</td>
+        </tr>
+        <tr>
+          <td id="acell4">Cell contents</td>
+          <td id="acell5">Cell contents</td>
+          <td id="acell6">Cell contents</td>
+        </tr>
+        <tr>
+          <td  id="acell7" class="spin_here">Cell contents</td>
+          <td id="acell8">Cell contents</td>
+          <td class="spin_here" id="acell9">Cell contents</td>
+        </tr>
+
+      </table>
+      <input type="text" id="myinput"/>
+    </div>
+  </body>
+</html>
