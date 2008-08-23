@@ -22,19 +22,19 @@
     <div id="mydiv">
       <table border="1" id="mytable">
         <tr>
-          <td id="acell1">Cell contents</td>
-          <td id="acell2" class="spin_here">Cell contents</td>
-          <td id="acell3">Cell contents</td>
+          <td>Cell contents</td>
+          <td class="spin_here">Cell contents</td>
+          <td>Cell contents</td>
         </tr>
         <tr>
-          <td id="acell4">Cell contents</td>
-          <td id="acell5">Cell contents</td>
-          <td id="acell6">Cell contents</td>
+          <td>Cell contents</td>
+          <td>Cell contents</td>
+          <td>Cell contents</td>
         </tr>
         <tr>
-          <td id="acell7" class="spin_here">Cell contents</td>
-          <td id="acell8">Cell contents</td>
-          <td class="spin_here" id="acell9">Cell contents</td>
+          <td class="spin_here">Cell contents</td>
+          <td>Cell contents</td>
+          <td class="spin_here">Cell contents</td>
         </tr>
       </table>
       <br/>
@@ -61,12 +61,17 @@
     </div>
     
     <hr/>
-    <button onclick="$.Spinner.unspin(); $('.a_p').spin()">Spin all elements with class "a_p"</button>
-    <button onclick="$.Spinner.unspin(); $('td').spin()">Spin all TD elements</button>
-    <button onclick="$.Spinner.unspin(); $('.spin_here').spin()">Spin all elements with class "spin_here"</button>
-    <button onclick="$.Spinner.unspin(); $('input').spin()">Spin all INPUT elements</button>
-    <button onclick="$.Spinner.unspin(); $('#inline_text').spin()">Spin all element with ID 'inline_text'</button>
-    <button onclick="$.Spinner.unspin(); $('form select').spin()">Spin SELECTs inside FORMs</button>
+    <button onclick="$('.a_p').spin()">Spin all elements with class "a_p"</button>
+    <button onclick="$('td').spin()">Spin all TD elements</button>
+    <button onclick="$('.spin_here').spin({unspinOthers: false})">Spin all elements with class "spin_here", leaving current spinner spinning</button>
+    <button onclick="$('input').spin()">Spin all INPUT elements</button>
+    <button onclick="$('#inline_text').spin()">Spin all element with ID 'inline_text'</button>
+    <button onclick="$('form select').spin()">Spin SELECTs inside FORMs</button>
+    <br/>
+    <button onclick="$('#mytable').spin({className: 'green-spinner'})">
+      Spin table with alternative spinner
+    </button>
+    <button onclick="$('#mytable').unspin()">Unspin table (non default spinners require manual unspinning)</button>
     <br/>
     <button onclick="$.Spinner.unspin();">Unspin all</button>
   </body>

@@ -4,4 +4,13 @@
   opacity: 0.75;
   filter: alpha(opacity: 75);
   -moz-opacity: 0.75;
-  -khtml-opacity: 0.75; }
+  -khtml-opacity: 0.75;
+}
+
+.green-spinner{
+  background: #fff url('../images/green-loader.gif') no-repeat center center;
+  opacity: 0.75;
+  filter: alpha(opacity: 75);
+  -moz-opacity: 0.75;
+  -khtml-opacity: 0.75;
+}

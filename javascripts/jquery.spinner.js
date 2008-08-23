@@ -1,9 +1,12 @@
+if (typeof jQuery == 'undefined') throw("Juggernaut error. jQuery could not be found.");
+
 (function($){
   $.extend({
     Spinner: {
-      className:    "spinner",
-      spinnerID:    "_spinner_div",
-      debug:        false,
+      debug:        false,          // should print log messages?
+      unspinOthers: true,           // should unspin all spinners before spinning new ones?
+      className:    "spinner",      // spinner class; if an element is spun using a custom class, the "unspinOthers" will not pick it up. Such elements has to be unspun explicitly.
+      spinnerID:    "_spinner_div", // spinner divs have random IDs prefixed with this
       hasFirebug:   "console" in window && "firebug" in window.console,
       logger:       function(msg){
                       if(this.debug){
@@ -24,16 +27,18 @@
       }
     });
     
-  $.fn.spin = function(options){
+  $.fn.spin = function(){
+    var defaults = {
+      className:    $.Spinner.className,
+      unspinOthers: $.Spinner.unspinOthers,
+      spinnerID:    $.Spinner.spinnerID
+      }
+    var settings = $.extend(defaults, arguments.length != 0 ? arguments[0] : {});
+
+    (settings.unspinOthers && $.Spinner.unspin());
+    
     return this.each(function(){
       var spun = $(this);
-      // if( (spinner = $("#"+spun.attr("id")+$.Spinner.spinnerID+"."+$.Spinner.className)) && spinner.get(0) ){
-      //   $.Spinner.logger("Already spinning.");
-      //   spinner.show();
-      //   return jQuery;
-      // }
-      // (spun.attr("spinning")==true && $.Spinner.logger("Already spinning."))
-      
       if((spinner = $("#"+spun.attr("spinner"))) && spinner.get(0)){
         spinner.show();
         $.Spinner.logger("Already spinning.");
@@ -41,22 +46,22 @@
       }
         
       var spinnerID = $.Spinner.spinnerID + String(Math.random()).substring(2);
-      spun.attr({spinner: spinnerID});
-      $.Spinner.logger("SpinnerID: "+spinnerID + " Check: " + spun.attr("spinner"));
-      $(document.createElement('div'))
-        .attr({id: spinnerID, className: $.Spinner.className})
-        .css({
-          position: "absolute",
-          top: spun.offset().top, 
-          left: spun.offset().left, 
-          width: spun.outerWidth(), 
-          height: spun.outerHeight()
-        })
-        .appendTo($("body"));
+      $("body")
+        .append(
+          $('<div id="'+spinnerID+'" class="'+settings.className+'"></div"')
+          .css({
+            position: "absolute",
+            top: spun.offset().top, 
+            left: spun.offset().left, 
+            width: spun.outerWidth(), 
+            height: spun.outerHeight()
+          })
+        );
+      spun.attr({spinner: spinnerID}); // Keep track of the spinner for the element
     });
   };
   
-  $.fn.unspin = function(options){
+  $.fn.unspin = function(){
     return this.each(function(){
       $("#"+$(this).attr("spinner")).hide();
     });
