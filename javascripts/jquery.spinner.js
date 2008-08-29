@@ -1,3 +1,6 @@
+$(document).ready(function(){
+  $("body").spin().unspin(); // Weird "image not showing" bug. :-( Need a better solution
+})
 if (typeof jQuery == 'undefined') throw("jQuery could not be found.");
 
 (function($){
