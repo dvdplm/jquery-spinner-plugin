@@ -1,4 +1,4 @@
-if (typeof jQuery == 'undefined') throw("Juggernaut error. jQuery could not be found.");
+if (typeof jQuery == 'undefined') throw("jQuery could not be found.");
 
 (function($){
   $.extend({
