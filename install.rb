@@ -18,8 +18,8 @@ puts "CSS files copied"
 
 sassdir = "stylesheets/sass"
 ["spinner.sass"].each do |sass_file|
-	dest_file = File.join(RAILS_ROOT, "public", cssdir, sass_file)
-	src_file = File.join(File.dirname(__FILE__) , cssdir, sass_file)
+	dest_file = File.join(RAILS_ROOT, "public", sassdir, sass_file)
+	src_file = File.join(File.dirname(__FILE__) , sassdir, sass_file)
 	FileUtils.cp_r(src_file, dest_file)
 end
 puts "Sass files copied"
