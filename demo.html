@@ -60,6 +60,30 @@
       </form>
     </div>
     
+    <div id="button_container">
+      <button id="btn">Some button</button>
+      <input type="button" value="an input btn"/>
+    </div>
+    <div id="form_container">
+      <form id="aform">
+        <input type="text" value="test"/>
+        <input type="submit" value="save!"/>
+      </form>
+    </div>
+    <button id="wbtn">
+      Weird <b>HUGE</b> button
+      <p>
+        a b c d e f g h i   j k l m n o p q r s t u v x y z
+      </p>
+      <br/>
+      many lines.
+      <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+      </ul>
+    </button>
+    <br/>
     <hr/>
     <button onclick="$('.a_p').spin()">Spin all elements with class "a_p"</button>
     <button onclick="$('td').spin()">Spin all TD elements</button>
@@ -73,6 +97,17 @@
     </button>
     <button onclick="$('#mytable').unspin()">Unspin table (non default spinners require manual unspinning)</button>
     <br/>
+    <button onclick="$('#btn').spin()">spin "Some button"</button>
+    <br/>
+    <button onclick="$('input[type=button]').spin()">spin "an input btn" button</button>
+    <br/>
+    <button onclick="$('input[type=submit]').spin()">spin "save!" button</button>
+    <br/>
+    <button onclick="$('#aform').spin()">spin whole form</button>
+    <br/>
+    <button onclick="$('#wbtn').spin()">spin big weird button</button>
+    <br/>
+    <hr/>
     <button onclick="$.Spinner.unspin();">Unspin all</button>
   </body>
 </html>
