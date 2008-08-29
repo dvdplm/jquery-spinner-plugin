@@ -6,7 +6,7 @@ jsdir = "javascripts"
 	src_file = File.join(File.dirname(__FILE__) , jsdir, js_file)
 	FileUtils.cp_r(src_file, dest_file)
 end
-puts "Javascript files copied"
+puts "...Javascript files copied"
 
 cssdir = "stylesheets"
 ["spinner.css"].each do |css_file|
@@ -14,7 +14,7 @@ cssdir = "stylesheets"
 	src_file = File.join(File.dirname(__FILE__) , cssdir, css_file)
 	FileUtils.cp_r(src_file, dest_file)
 end
-puts "CSS files copied"
+puts "...CSS files copied"
 
 sassdir = "stylesheets/sass"
 ["spinner.sass"].each do |sass_file|
@@ -22,6 +22,6 @@ sassdir = "stylesheets/sass"
 	src_file = File.join(File.dirname(__FILE__) , sassdir, sass_file)
 	FileUtils.cp_r(src_file, dest_file)
 end
-puts "Sass files copied"
+puts "...Sass files copied"
 
 puts "ALL files copied - Installation complete!"
